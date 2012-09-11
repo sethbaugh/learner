@@ -20,6 +20,10 @@
     <%= post_form.text_field :title %>
   </div>
   <div class="field">
+    <%= post_form.label :date %><br />
+    <%= post_form.text_field :date %>
+  </div>
+  <div class="field">
     <%= post_form.label :awesomeness %><br />
     <%= post_form.select(:awesomeness, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]])) %>
   </div>

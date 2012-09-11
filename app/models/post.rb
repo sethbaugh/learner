@@ -1,10 +1,11 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :name, :title, :tags_attributes, :awesomeness
+  attr_accessible :content, :name, :title, :tags_attributes, :awesomeness, :date
  
   validates :name,  :presence => true
   validates :title, :presence => true,
                     :length => { :minimum => 5 }
   validates :awesomeness, :presence => true
+  validates :date, :presence => true
  
   has_many :comments, :dependent => :destroy
   has_many :tags
