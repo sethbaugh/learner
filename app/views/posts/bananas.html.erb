@@ -1,0 +1,40 @@
+<h1><%= image_tag "bananas_icon.jpg" %>Bananas<%= image_tag "bananas_icon.jpg" %></h1>
+<h2>Do you like bananas?</h2>
+<%= @banana_count %> People Like bananas
+<br />
+<br />
+<h2>My Most Recent Post</h2>
+<p>
+  <b>Name:</b>
+  <%= @post.name %>
+</p>
+ 
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <b>Awesomeness:</b>
+  <%= @post.awesomeness %>
+</p>
+ 
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+ 
+<p>
+  <b>Tags:</b>
+  <%= join_tags(@post) %>
+</p>
+ 
+<h2>Comments</h2>
+<%= render @post.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+ 
+ 
+<%= link_to 'Edit Post', edit_post_path(@post) %> |
+<%= link_to 'Back to Posts', posts_path %> |
