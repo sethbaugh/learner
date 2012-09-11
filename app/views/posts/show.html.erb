@@ -24,7 +24,11 @@
   <b>Content:</b>
   <%= @post.content %>
 </p>
- 
+<p>
+  <%= image_tag @post.photo.url %>
+  <%= image_tag @post.photo.url(:medium) %>
+  <%= image_tag @post.photo.url(:thumb) %>
+</p>
 <p>
   <b>Tags:</b>
   <%= join_tags(@post) %>
