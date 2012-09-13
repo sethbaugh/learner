@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911202021) do
+ActiveRecord::Schema.define(:version => 20120913175629) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(:version => 20120911202021) do
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
+  create_table "confrences", :force => true do |t|
+    t.string   "name"
+    t.integer  "sport_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "confrences", ["sport_id"], :name => "index_confrences_on_sport_id"
 
   create_table "posts", :force => true do |t|
     t.string   "name"
@@ -37,6 +46,12 @@ ActiveRecord::Schema.define(:version => 20120911202021) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "sports", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.integer  "post_id"
@@ -45,5 +60,14 @@ ActiveRecord::Schema.define(:version => 20120911202021) do
   end
 
   add_index "tags", ["post_id"], :name => "index_tags_on_post_id"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.integer  "confrence_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "teams", ["confrence_id"], :name => "index_teams_on_confrence_id"
 
 end
