@@ -1,5 +1,9 @@
 Learner::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
    # /posts/bananas
  match 'posts/bananas' => 'posts#bananas', :as => 'bananas'
 

@@ -2,10 +2,10 @@ class CreateArticles < ActiveRecord::Migration
   def change
     create_table :articles do |t|
       t.date :date
-      t.references :TeamRelease
+      t.references :team_release
 
       t.timestamps
     end
-    add_index :articles, :TeamRelease_id
+    add_index :articles, :team_release_id
   end
 end
