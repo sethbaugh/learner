@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120913175629) do
+ActiveRecord::Schema.define(:version => 20120913180621) do
+
+  create_table "articles", :force => true do |t|
+    t.date     "date"
+    t.integer  "TeamRelease_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "articles", ["TeamRelease_id"], :name => "index_articles_on_TeamRelease_id"
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -60,6 +69,15 @@ ActiveRecord::Schema.define(:version => 20120913175629) do
   end
 
   add_index "tags", ["post_id"], :name => "index_tags_on_post_id"
+
+  create_table "team_releases", :force => true do |t|
+    t.date     "date"
+    t.integer  "team_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "team_releases", ["team_id"], :name => "index_team_releases_on_team_id"
 
   create_table "teams", :force => true do |t|
     t.string   "name"
